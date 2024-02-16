@@ -8,6 +8,9 @@
   html,
   body {
     font-family: "Martel Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    @apply text-body-500 text-pretty;
   }
   h1,
   h2,
@@ -16,5 +19,14 @@
   h5,
   h6 {
     font-family: "Signika", sans-serif;
+    letter-spacing: 0.05em;
+    @apply text-heading-500 text-balance;
   }
+}
+.background {
+  background: url("/assets/images/background/background.png") bottom/100%
+    no-repeat;
+  object-fit: cover;
+  opacity: 0.3;
+  height: 100%;
 }
