@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         sizes="16x16"
         href="/assets/favicon/favicon-16x16.png"
       />
-      <body>{children}</body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }
