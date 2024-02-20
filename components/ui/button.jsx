@@ -5,18 +5,24 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-bold ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 duration-300 ease-in-out -tracking-tighter",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-bold ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
   {
     variants: {
       variant: {
-        default: "bg-primary-500 text-white hover:bg-primary-250 ",
-        destructive: "bg-red-500 text-white hover:bg-red-500/80",
+        default:
+          "bg-primary-500 text-slate-50 hover:bg-primary-500/90  transition-colors duration-300 ease-in-out",
+        destructive:
+          "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90 transition-colors duration-300 ease-in-out",
         outline:
-          "border border-primary-500 bg-white hover:bg-primary-250 hover:text-white",
-        secondary: "bg-secondary-500 text-white hover:bg-secondary-250",
+          "border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+        secondary:
+          "bg-secondary-500 text-btn hover:bg-secondary-500/80 transition-colors duration-300 ease-in-out",
+        ghost:
+          "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+        link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
       },
       size: {
-        default: "h-10 px-4 pt-[1.4rem] pb-[1.2rem]",
+        default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
