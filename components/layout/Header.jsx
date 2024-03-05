@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button.jsx";
 import logo from "@/public/assets/images/logo/logo.png";
 import { User } from "lucide-react";

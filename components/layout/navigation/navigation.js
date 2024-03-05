@@ -28,11 +28,13 @@ export const navigation = [
     category: "compte",
     pathname: "/inscription",
     content: "S'inscrire",
+    online: true,
   },
   {
     category: "compte",
     pathname: "/connexion",
     content: "Se connecter",
+    online: true,
   },
   {
     category: "compte",
