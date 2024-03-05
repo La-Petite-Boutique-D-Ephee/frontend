@@ -10,7 +10,7 @@ export async function create(data) {
 }
 export async function getToken() {
   const token = cookies().get("token");
-  return token.value;
+  return token?.value;
 }
 export async function deleteToken() {
   cookies().delete("token");
