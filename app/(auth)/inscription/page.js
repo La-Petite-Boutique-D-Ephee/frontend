@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import dinosaure from "@/public/assets/images/dinosaure.png";
+import woman from "@/public/assets/images/woman.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -116,9 +116,9 @@ export default function Signin() {
     }
   }
   return (
-    <section className="mt-16 lg:mt-28 lg:w-[960px] lg:mx-auto">
+    <section className="mt-16 lg:mt-28 w-full">
       <div className="lg:flex lg:items-center lg:gap-8">
-        <div className="bg-white rounded-lg shadow-md p-4 lg:w-full">
+        <div className="bg-white rounded-lg shadow-md p-4 lg:w-full lg:flex-1">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -141,7 +141,7 @@ export default function Signin() {
                   </FormItem>
                 )}
               />
-              <div className="flex flex-col gap-8 md:flex-row">
+              <div className="flex flex-col gap-8">
                 <FormField
                   control={form.control}
                   name="password"
@@ -178,7 +178,7 @@ export default function Signin() {
                 />
               </div>
 
-              <div className="flex flex-col gap-8 md:flex-row">
+              <div className="flex flex-col gap-8">
                 <FormField
                   control={form.control}
                   name="firstname"
@@ -235,9 +235,9 @@ export default function Signin() {
             </form>
           </Form>
         </div>
-        <div className="lg:w-2/4 lg:h-[600px]">
+        <div className="lg:w-2/4">
           <Image
-            src={dinosaure}
+            src={woman}
             className="hidden lg:block lg:h-full lg:object-cover"
             alt="Création dinosaure"
             priority="true"
