@@ -1,0 +1,168 @@
+@import url(https://fonts.bunny.net/css?family=martel-sans:400|signika:700);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: "Martel Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    @apply text-body-500 text-pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Signika", sans-serif;
+    letter-spacing: 0.05em;
+    @apply text-heading-500 text-balance font-bold;
+  }
+}
+
+.swiper {
+  position: initial !important;
+}
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  bottom: -60px;
+}
+.swiper-pagination-bullet-active {
+  background: #c2b65b !important;
+}
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: -50px !important;
+  color: #c2b65b !important;
+  top: 67% !important;
+}
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: -50px !important;
+  color: #c2b65b !important;
+  top: 67% !important;
+}
+.slide {
+  border: 2px solid #597253;
+  background: #fdf7f5;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.plus {
+  position: relative;
+  cursor: pointer;
+}
+.plus::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 53px;
+  height: 2px;
+  border-radius: 2px;
+  border-bottom: 2px solid #c2b65b;
+}
+
+.background {
+  background: url("/assets/images/background/background.png") bottom/100%
+    no-repeat;
+  object-fit: cover;
+  opacity: 0.7;
+  height: 100%;
+}
+
+@layer utilities {
+  body.no-scroll {
+    overflow: hidden;
+  }
+  .backgroundNav {
+    position: fixed;
+    top: 0;
+    right: -1000px;
+    background: #000;
+    height: 100vh;
+    z-index: 1;
+    width: 100%;
+    transition: right 350ms ease-in-out, background 350ms ease-in-out,
+      opacity 350ms ease-in-out;
+  }
+  .backgroundNav.active {
+    opacity: 0.5;
+    right: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    .backgroundNav {
+      display: none;
+    }
+  }
+  header .navigation {
+    position: fixed;
+    right: -1000px;
+    top: 0;
+    z-index: 1;
+    transition: right 350ms ease-in-out, background 350ms ease-in-out;
+    height: 100vh;
+    overflow-y: scroll;
+    background: #fdf7f5;
+    box-shadow: 0px 8px 24px 0px rgba(149, 157, 155, 0.2);
+  }
+  header .navigation.active {
+    right: 0;
+  }
+  .card {
+    border-radius: 24px;
+    background: #fdf7f5;
+    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+    overflow: hidden;
+    height: 334px;
+    position: relative;
+    max-width: 280px;
+    width: 100%;
+  }
+  @media screen and (min-width: 1024px) {
+    .card {
+      max-width: 276px;
+    }
+  }
+  @media screen and (min-width: 1300px) {
+    .card {
+      max-width: 288px;
+    }
+  }
+  .card .content {
+    position: absolute;
+    top: 140px;
+    background: #fdf7f5;
+    border-top-right-radius: 24px;
+    width: 100%;
+  }
+  .content::before {
+    content: "";
+    position: absolute;
+    top: calc(0px - 25px);
+    left: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(
+      circle at 100% 0%,
+      transparent 25px,
+      #fdf7f5 25px
+    );
+  }
+  .dropdown-content {
+    opacity: 0;
+    transition: opacity 350ms ease-in-out, height 350ms ease-in-out;
+    /* autres styles ici */
+  }
+
+  .dropdown-content.open {
+    opacity: 1;
+  }
+}
