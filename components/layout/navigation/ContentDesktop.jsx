@@ -2,13 +2,10 @@
 
 import Link from "next/link.js";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useStore } from "../../../app/providers/store.js";
+import { useState } from "react";
+import isConnected from "../../../app/utils/isConnected.js";
 import { navigation } from "./navigation.js";
 export function ContentDesktop({ title, category }) {
-  const user = useStore((state) => state.user);
-  const fetchUser = useStore((state) => state.fetchUser);
-
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState({});
 
@@ -19,9 +16,7 @@ export function ContentDesktop({ title, category }) {
   const handleMouseLeave = () => {
     setOpenMenu({});
   };
-  useEffect(() => {
-    fetchUser();
-  }, [fetchUser]);
+
   return (
     <>
       <div
@@ -39,7 +34,7 @@ export function ContentDesktop({ title, category }) {
         >
           {navigation
             .filter((nav) => {
-              if (user && nav.online) {
+              if (isConnected() && nav.online) {
                 return false;
               }
               return nav.category === `${category}`;
