@@ -1,55 +1,37 @@
 "use client";
 
 import { useRouter } from "next/navigation.js";
-import { useEffect, useState } from "react";
-import { deleteToken, getToken } from "../../action.js";
+import { useEffect } from "react";
+import { Button } from "../../../components/ui/button.jsx";
+import { deleteToken } from "../../action.js";
+import { useStore } from "../../providers/store.js";
 
 export default function Me() {
-  const [user, setUser] = useState(null);
+  const user = useStore((state) => state.user);
+  const fetchUser = useStore((state) => state.fetchUser);
   const router = useRouter();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Remplacez l'URL de l'API par l'URL réelle de votre API
-        const token = await getToken();
+    fetchUser();
+  }, [fetchUser]);
 
-        const response = await fetch("https://127.0.0.1:8000/api/me", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+  const handleClick = async () => {
+    await deleteToken();
+    router.replace("/");
+  };
 
-        if (response.ok) {
-          const data = await response.json();
-          setUser(data.data.user);
-        } else {
-          const error = await response.json();
-          if (error.codeError === "SessionError") {
-            router.replace("/connexion");
-            await deleteToken();
-          }
-        }
-      } catch (error) {
-        console.error("Erreur réseau :", error.message);
-      }
-    };
-    fetchData();
-  }, [router]);
   return (
-    <>
+    <div>
       {user ? (
-        <div>
-          <h1>
-            Bienvenue, {user.firstname} {user.lastname} !
-          </h1>
-          <p>{user.email}</p>
-        </div>
+        <h1>
+          Bienvenue, {user.firstname} {user.lastname} !
+          <Button variant="destructive" onClick={handleClick}>
+            Se déconnecter
+          </Button>
+        </h1>
       ) : (
-        <p>Chargement en cours...</p>
+        <p>Loading...</p>
       )}
-    </>
+    </div>
   );
 }

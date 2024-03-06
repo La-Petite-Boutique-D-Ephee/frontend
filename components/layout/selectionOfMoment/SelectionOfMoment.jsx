@@ -1,10 +1,20 @@
+"use client";
+
 import { Button } from "@/components/ui/button.jsx";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image.js";
+import { useShop } from "../../../app/providers/shop.js";
 import { Title } from "../../title/Title.jsx";
 import { selectionOfMoment } from "./selectionOfMoment.js";
 
 export function SelectionOfMoment() {
+  const cart = useShop((state) => state.cart);
+  const addItem = useShop((state) => state.addToCart);
+
+  const handleAddItem = (product) => {
+    addItem(product);
+  };
+
   return (
     <section className="mt-32 md:mt-40">
       <Title
@@ -20,7 +30,9 @@ export function SelectionOfMoment() {
                   className="h-full w-full"
                   src={selection.thumbnail}
                   alt={selection.title}
-                  loading="lazy"
+                  priority={true}
+                  width={280}
+                  height={164}
                 />
               </div>
               <div className="content py-8">
@@ -31,7 +43,10 @@ export function SelectionOfMoment() {
                   </span>
                   <Button variant="secondary">
                     <ShoppingCart className="mr-4" size={22} />
-                    <span className="uppercase text-text-btn">
+                    <span
+                      className="uppercase text-text-btn"
+                      onClick={() => handleAddItem(selection)}
+                    >
                       Acheter ce produit
                     </span>
                   </Button>
