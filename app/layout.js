@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="bg-background-500">
+    <html lang="fr" className="bg-background-500 overflow-x-hidden">
       <link
         rel="apple-touch-icon"
         sizes="180x180"

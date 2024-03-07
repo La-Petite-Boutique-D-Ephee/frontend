@@ -24,7 +24,7 @@ export function Header() {
         </div>
         <Mobile />
         <Desktop />
-        <div className="flex items-center gap-8 cursor-pointer ">
+        <div className="lg:flex items-center gap-8 cursor-pointer hidden">
           {isConnected() ? (
             <Button className="hidden lg:inline-flex font-medium">
               <User size={20} className="mr-4" />
