@@ -18,7 +18,7 @@ export function Shop() {
     <>
       <div
         onClick={handleClick}
-        className="relative hover:text-primary-500 transition-colors duration-300 ease-in-out"
+        className="relative hover:text-primary-500 transition-colors duration-300 ease-in-out hidden"
       >
         <ShoppingBag size={20} />
       </div>
