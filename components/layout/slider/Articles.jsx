@@ -32,7 +32,14 @@ export function Articles() {
                 enabled: false,
               },
             },
-            1024: {
+            1280: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+              navigation: {
+                enabled: true,
+              },
+            },
+            1540: {
               slidesPerView: 3,
               spaceBetween: 30,
               navigation: {
@@ -56,18 +63,18 @@ export function Articles() {
                     src={article.thumbnail}
                     loading="lazy"
                     alt={article.title}
-                    className="w-full"
+                    className="h-full w-full"
                   />
                   <div className="px-4 py-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl">{article.title}</h3>
+                      <h3 className="line-clamp-1 text-xl">{article.title}</h3>
                       <p className="text-body text-sm">{article.createdAt}</p>
                     </div>
                     <div className="mt-4">
-                      <p className="text-base text-body line-clamp-2">
+                      <p className="text-body line-clamp-2 text-base">
                         {article.content}
                       </p>
-                      <div className="mt-4 plus text-right">
+                      <div className="plus relative mt-4 cursor-pointer text-right before:absolute before:bottom-0 before:h-[2px] before:w-[10%] before:rounded-sm before:border-b-2 before:border-secondary-500 before:transition-[width] before:duration-300 before:ease-in-out before:content-[''] hover:before:w-[12%]">
                         <span className="text-sm">Voir plus</span>
                       </div>
                     </div>

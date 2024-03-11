@@ -52,14 +52,14 @@ export function Mobile() {
       ></div>
       <nav
         id="nav"
-        className={`flex-col gap-8 flex pb-32 navigation ${
-          isOpen ? "active lg:hidden" : "lg:hidden"
+        className={`absolute -right-full top-0 z-[1] flex h-screen flex-col gap-8 overflow-y-scroll bg-background-500 pb-32 shadow-md transition-all duration-300 ease-in-out ${
+          isOpen ? "active right-0" : "lg:hidden"
         }`}
       >
         <div
           className={`${
             isOpen
-              ? "bg-background-500/70 backdrop-blur-sm shadow-sm sticky top-0"
+              ? "sticky top-0 bg-background-500/70 shadow-sm backdrop-blur-sm"
               : ""
           }`}
         >

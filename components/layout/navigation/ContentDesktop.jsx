@@ -22,13 +22,13 @@ export function ContentDesktop({ title, category }) {
       <div
         onMouseEnter={() => handleMouseEnter(`${category}`)}
         onMouseLeave={handleMouseLeave}
-        className="dropdown flex flex-col relative"
+        className="dropdown relative flex flex-col"
       >
-        <button className="hover:text-primary-500 transition-colors duration-300 ease-in-out text-lg">
+        <button className="text-lg transition-colors duration-300 ease-in-out hover:text-primary-500">
           {title}
         </button>
         <div
-          className={`dropdown-content space-y-4 absolute left-1/2 -translate-x-1/2 w-64 top-14 rounded-md shadow-md border border-primary-500 bg-background-500 p-4 ${
+          className={`dropdown-content absolute left-1/2 top-14 w-64 -translate-x-1/2 space-y-4 rounded-md border border-primary-500 bg-background-500 p-4 shadow-md ${
             openMenu[`${category}`] ? "open" : ""
           }`}
         >
@@ -44,8 +44,8 @@ export function ContentDesktop({ title, category }) {
               return (
                 <ul
                   key={index}
-                  className={`text-lg text-center hover:text-primary-500 transition-colors duration-300 ease-in-out ${
-                    isActive ? "text-primary-500 font-bold" : ""
+                  className={`text-center text-lg transition-colors duration-300 ease-in-out hover:text-primary-500 ${
+                    isActive ? "font-bold text-primary-500" : ""
                   }`}
                 >
                   <li>

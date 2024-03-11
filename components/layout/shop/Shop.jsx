@@ -1,32 +1,61 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { ShoppingBag } from "lucide-react";
+import { Minus, Plus, ShoppingBag } from "lucide-react";
 import Image from "next/image.js";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useShop } from "../../../app/providers/shop.js";
+import { Button } from "../../ui/button.jsx";
 
 export function Shop() {
-  const [active, setActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const cart = useShop((state) => state.cart);
   const total = useShop((state) => state.getTotalProduct());
 
-  const handleClick = () => {
-    setActive(!active);
-  };
+  const backgroundRef = useRef(null);
+  const bodyRef = useRef(null);
+
+  const ACTIVE_CLASS = "active";
+  const NO_SCROLL_CLASS = "no-scroll-bag";
+
+  const handleClick = useCallback(() => {
+    setIsOpen((prevState) => !prevState);
+  }, []);
+
+  useEffect(() => {
+    const background = (backgroundRef.current =
+      document.querySelector("#backgroundShop"));
+    const body = (bodyRef.current = document.querySelector("html"));
+
+    if (background && body) {
+      if (isOpen) {
+        background.classList.add(ACTIVE_CLASS);
+        body.classList.add(NO_SCROLL_CLASS);
+      } else {
+        background.classList.remove(ACTIVE_CLASS);
+        body.classList.remove(NO_SCROLL_CLASS);
+      }
+    }
+
+    return () => {
+      if (background && body) {
+        background.classList.remove(ACTIVE_CLASS);
+        body.classList.remove(NO_SCROLL_CLASS);
+      }
+    };
+  }, [isOpen]);
+
   return (
     <>
       <div
         onClick={handleClick}
-        className="relative hover:text-primary-500 transition-colors duration-300 ease-in-out hidden"
+        className="relative hidden transition-colors duration-300 ease-in-out hover:text-primary-500 lg:block"
       >
         <ShoppingBag size={20} />
       </div>
       <div
-        className={`${
-          active
-            ? "block absolute h-screen bg-background-500 shadow-md w-[25%] top-40 rounded-md p-4 right-0 -z-10"
-            : "hidden"
+        className={`shop absolute top-0 z-10 flex h-screen w-[25%] flex-col items-center justify-center rounded-md bg-background-500 p-4  shadow-md ${
+          isOpen ? "active " : ""
         }`}
       >
         {cart.length === 0 ? (
@@ -37,34 +66,48 @@ export function Shop() {
               return (
                 <li key={item.id} className="flex items-center gap-8">
                   <Image
-                    src={item.thumbnail}
+                    src={item.image}
                     alt={item.title}
                     width={120}
                     height={120}
-                    className="rounded-md block"
+                    className="block rounded-md"
                     priority={true}
                   />
                   <div>
-                    <p>{item.title}</p>
-                    <p>{item.price} €</p>
+                    <p className="text-base font-bold">{item.title}</p>
+                    <div className="flex w-24 items-center bg-blue-500">
+                      <Plus />
+                      <input
+                        type="number"
+                        className="w-full bg-red-500"
+                        defaultValue={item.quantity}
+                        readOnly
+                      />
+                      <Minus />
+                    </div>
                     <p>
                       Quantité: <span>{item.quantity}</span>
                     </p>
-                    <p>
-                      Total Produit:
-                      {item.price * item.quantity} €
-                    </p>
+                    <p className="text-base">{item.price * item.quantity} €</p>
                   </div>
                 </li>
               );
             })}
-            <p>
-              Total Produits:
-              {total} €
-            </p>
+            <div className="mt-8 flex flex-row justify-between">
+              <p className="text-base uppercase">Totals:</p>
+              <p className="text-base font-bold"> {total} €</p>
+            </div>
           </ul>
         )}
+        <Button variant="secondary" size="lg" className="mt-8 w-full">
+          Payer
+        </Button>
       </div>
+      <div
+        onClick={handleClick}
+        id="backgroundShop"
+        className="backgroundShop cursor-pointer"
+      ></div>
     </>
   );
 }

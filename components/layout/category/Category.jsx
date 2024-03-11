@@ -6,10 +6,10 @@ import { category } from "./category.js";
 
 export function Category() {
   return (
-    <section className="flex flex-col items-center gap-8 md:flex-row md:flex-wrap md:justify-center lg:justify-center mt-32">
+    <section className="mt-32 flex flex-col items-center gap-8 md:flex-row md:flex-wrap md:justify-center lg:justify-center">
       {category.map((card) => {
         return (
-          <Card key={card.id} className="w-3/4 md:w-[47%] lg:w-[22%] relative">
+          <Card key={card.id} className="relative w-80 md:max-w-xs lg:max-w-72">
             <Image
               className="w-full object-cover"
               src={card.thumbnail}
@@ -17,7 +17,7 @@ export function Category() {
               priority="true"
             />
             <CardFooter className="block">
-              <CardTitle className="text-body text-lg text-center mt-4">
+              <CardTitle className="text-body mt-4 text-center text-lg">
                 {card.title}
               </CardTitle>
             </CardFooter>

@@ -26,6 +26,8 @@
 
 .swiper {
   position: initial !important;
+  max-width: 80%;
+  width: 100%;
 }
 .swiper-horizontal
   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
@@ -37,13 +39,13 @@
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-  left: -50px !important;
+  left: -14px !important;
   color: #c2b65b !important;
   top: 67% !important;
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: -50px !important;
+  right: -14px !important;
   color: #c2b65b !important;
   top: 67% !important;
 }
@@ -55,36 +57,26 @@
   overflow: hidden;
   border-radius: 8px;
 }
-.plus {
-  position: relative;
-  cursor: pointer;
-}
-.plus::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 53px;
-  height: 2px;
-  border-radius: 2px;
-  border-bottom: 2px solid #c2b65b;
-}
-
-.background {
-  background: url("/assets/images/background/background.png") bottom/100%
-    no-repeat;
-  object-fit: cover;
-  opacity: 0.7;
-  height: 100%;
+@media screen and (min-width: 1536px) {
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: 70px !important;
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 70px !important;
+  }
 }
 
 @layer utilities {
-  body.no-scroll {
-    overflow: hidden;
+  html.no-scroll-bag {
+    overflow-y: hidden;
   }
-  .backgroundNav {
+  .backgroundNav,
+  .backgroundShop {
     position: fixed;
     top: 0;
-    right: -1000px;
+    right: -100%;
     background: #000;
     height: 100vh;
     z-index: 1;
@@ -92,7 +84,8 @@
     transition: right 350ms ease-in-out, background 350ms ease-in-out,
       opacity 350ms ease-in-out;
   }
-  .backgroundNav.active {
+  .backgroundNav.active,
+  .backgroundShop.active {
     opacity: 0.5;
     right: 0;
   }
@@ -101,61 +94,19 @@
       display: none;
     }
   }
-  header .navigation {
-    position: fixed;
-    right: -1000px;
-    top: 0;
-    z-index: 1;
-    transition: right 350ms ease-in-out, background 350ms ease-in-out;
-    height: 100vh;
-    overflow-y: scroll;
-    background: #fdf7f5;
-    box-shadow: 0px 8px 24px 0px rgba(149, 157, 155, 0.2);
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
-  header .navigation.active {
+  .shop {
+    right: -100%;
+    transition: right 350ms ease-in-out;
+  }
+  .shop.active {
     right: 0;
   }
-  .card {
-    border-radius: 24px;
-    background: #fdf7f5;
-    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
-    overflow: hidden;
-    height: 334px;
-    position: relative;
-    max-width: 280px;
-    width: 100%;
-  }
-  @media screen and (min-width: 1024px) {
-    .card {
-      max-width: 276px;
-    }
-  }
-  @media screen and (min-width: 1300px) {
-    .card {
-      max-width: 288px;
-    }
-  }
-  .card .content {
-    position: absolute;
-    top: 140px;
-    background: #fdf7f5;
-    border-top-right-radius: 24px;
-    width: 100%;
-  }
-  .content::before {
-    content: "";
-    position: absolute;
-    top: calc(0px - 25px);
-    left: 0;
-    display: block;
-    width: 25px;
-    height: 25px;
-    background: radial-gradient(
-      circle at 100% 0%,
-      transparent 25px,
-      #fdf7f5 25px
-    );
-  }
+
   .dropdown-content {
     opacity: 0;
     transition: opacity 350ms ease-in-out, height 350ms ease-in-out;

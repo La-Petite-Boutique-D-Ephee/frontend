@@ -11,8 +11,8 @@ import { Shop } from "./shop/Shop.jsx";
 
 export function Header() {
   return (
-    <header className="bg-background-500/70 backdrop-blur-sm pt-2 pb-6 shadow-md sticky top-0 z-50">
-      <div className="sm:container flex justify-between items-center">
+    <header className="container sticky top-0 z-50 bg-background-500/70 pb-6 pt-2 shadow-md backdrop-blur-sm">
+      <div className="flex items-center justify-between sm:container">
         <div>
           <Image
             src={logo}
@@ -24,9 +24,9 @@ export function Header() {
         </div>
         <Mobile />
         <Desktop />
-        <div className="lg:flex items-center gap-8 cursor-pointer hidden">
+        <div className="hidden cursor-pointer items-center gap-8 lg:flex">
           {isConnected() ? (
-            <Button className="hidden lg:inline-flex font-medium">
+            <Button className="hidden font-medium lg:inline-flex">
               <User size={20} className="mr-4" />
               <Link href="/me">Voir mon profil</Link>
             </Button>
