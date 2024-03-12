@@ -52,8 +52,8 @@ export function Mobile() {
       ></div>
       <nav
         id="nav"
-        className={`absolute -right-full top-0 z-[1] flex h-screen flex-col gap-8 overflow-y-scroll bg-background-500 pb-32 shadow-md transition-all duration-300 ease-in-out ${
-          isOpen ? "active right-0" : "lg:hidden"
+        className={`absolute right-0 top-0 z-[1] flex h-screen translate-x-full flex-col gap-8 overflow-y-scroll bg-background-500 pb-32 shadow-md transition-all duration-300 ease-in-out ${
+          isOpen ? "active translate-x-[0%]" : "lg:hidden"
         }`}
       >
         <div

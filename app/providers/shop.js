@@ -35,6 +35,7 @@ export const useShop = create(
       getTotalOneProduct: () =>
         get().cart.map((product) => product.price * product.quantity),
     }),
+
     {
       name: "shop",
     }
