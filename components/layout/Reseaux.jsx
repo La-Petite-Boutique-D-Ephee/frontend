@@ -24,7 +24,10 @@ export function Reseaux() {
           </Link>
         </div>
         <div>
-          <Link href="#" target="_blank">
+          <Link
+            href="https://www.instagram.com/lapetiteboutiquedephee/"
+            target="_blank"
+          >
             <Image
               src={instagram}
               className="h-full w-full"

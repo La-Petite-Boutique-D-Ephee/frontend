@@ -11,7 +11,7 @@ import { Shop } from "./shop/Shop.jsx";
 
 export function Header() {
   return (
-    <header className="container sticky top-0 z-50 bg-background-500/70 pb-6 pt-2 shadow-md backdrop-blur-sm">
+    <header className="sticky top-0 z-50 bg-background-500/70 pb-6 pt-2 shadow-md backdrop-blur-sm lg:shadow-none">
       <div className="flex items-center justify-between sm:container">
         <div>
           <Image

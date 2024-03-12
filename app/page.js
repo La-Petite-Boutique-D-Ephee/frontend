@@ -1,3 +1,5 @@
+"use cleint";
+
 import { Header } from "../components/layout/Header.jsx";
 import { HeroBanner } from "../components/layout/HeroBanner.jsx";
 import { Reseaux } from "../components/layout/Reseaux.jsx";

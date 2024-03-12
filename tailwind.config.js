@@ -14,7 +14,7 @@ module.exports = {
           DEFAULT: "1rem",
           lg: "2rem",
           xl: "5rem",
-          "2xl": "0",
+          "2xl": "2rem",
         },
       },
       colors: {
@@ -112,6 +112,13 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      backgroundImage: {
+        "radial-gradient":
+          "radial-gradient(circle at 100% 0%, transparent 25px, #fdf7f5 25px)",
+      },
+      spacing: {
+        top: "calc(0px - 25px)",
       },
     },
   },
