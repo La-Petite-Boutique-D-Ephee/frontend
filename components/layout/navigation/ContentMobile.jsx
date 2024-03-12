@@ -21,7 +21,7 @@ export function ContentMobile({ title, category }) {
               <li
                 key={index}
                 className={`text-lg ${
-                  isActive ? "text-primary-500 font-bold" : ""
+                  isActive ? "font-bold text-primary-500" : ""
                 }`}
               >
                 <Link href={result.pathname}>{result.content}</Link>

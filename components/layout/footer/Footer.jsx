@@ -4,14 +4,14 @@ import { Navigation } from "./navigation.jsx";
 
 export function Footer() {
   return (
-    <footer className="mt-32 md:mt-40 bg-[#E7E7E7]">
+    <footer className="mt-32 bg-[#E7E7E7] md:mt-40">
       <div className="pt-16 lg:flex lg:items-center lg:justify-around">
-        <div className="w-[174px] h-[174px] mx-auto lg:mx-0">
+        <div className="mx-auto h-[174px] w-[174px] lg:mx-0">
           <Image
             src={logo}
             alt="Logo de La Petite Boutique D'Ephée"
             loading="lazy"
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
         <nav className="mt-16 flex flex-col gap-8 lg:flex-row lg:items-start">
@@ -21,7 +21,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="mt-16 pb-8">
-        <p className="text-body text-base font-medium text-center">
+        <p className="text-body text-center text-base font-medium">
           © La Petite Boutique D’Ephée - 2024
         </p>
       </div>

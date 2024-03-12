@@ -12,12 +12,12 @@ export function Reseaux() {
         title="Suivez,aimez,partager"
         subtitle="Retrouvez nous sur les réseaux"
       />
-      <div className="flex flex-row justify-center gap-6 mt-7">
+      <div className="mt-7 flex flex-row justify-center gap-6">
         <div>
           <Link href="#" target="_blank">
             <Image
               src={pinterest}
-              className="w-full h-full"
+              className="h-full w-full"
               alt="Logo de Pinterest"
               loading="lazy"
             />
@@ -27,7 +27,7 @@ export function Reseaux() {
           <Link href="#" target="_blank">
             <Image
               src={instagram}
-              className="w-full h-full"
+              className="h-full w-full"
               alt="Logo d'Instagram"
               loading="lazy"
             />
@@ -37,7 +37,7 @@ export function Reseaux() {
           <Link href="#" target="_blank">
             <Image
               src={facebook}
-              className="w-full h-full"
+              className="h-full w-full"
               alt="Logo de Facebook"
               loading="lazy"
             />

@@ -11,16 +11,16 @@ export function SommeNous() {
         subtitle="Découvrez nous"
         styleTitle="lg:hidden"
       />
-      <div className="flex flex-col gap-8 mt-8 justify-center md:flex-row md:gap-16 lg:items-center">
-        <div className="lg:w-[500px]">
+      <div className="mt-8 flex flex-col justify-center gap-8 md:flex-row md:gap-16 lg:items-center">
+        <div className="lg:w-full lg:max-w-[500px]">
           <Image
-            className="w-full h-full object-cover rounded-lg"
+            className="h-full w-full rounded-lg object-cover"
             src={sommeNous}
             priority="true"
             alt="Qui sommes nous"
           />
         </div>
-        <div className="md:w-1/2">
+        <div>
           <Title
             title="Qui sommes nous"
             subtitle="Découvrez nous"
@@ -28,14 +28,14 @@ export function SommeNous() {
             styleSubtitle="hidden"
             h2="lg:text-4xl"
           />
-          <p className="text-body text-base text-center md:text-left">
+          <p className="text-body text-center text-base md:text-left">
             Je suis un passionné du tricot, créant des pièces uniques <br />
             avec une fusion de textures et de couleurs. <br /> Mon art du tricot
             combine tradition et modernité, <br /> avec une attention minutieuse
             aux détails <br />
             pour offrir des créations chaleureuses et uniques.
           </p>
-          <div className="flex justify-center mt-16 md:justify-start">
+          <div className="mt-16 flex justify-center md:justify-start">
             <Button size="lg">En savoir plus</Button>
           </div>
         </div>
